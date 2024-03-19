@@ -1,0 +1,710 @@
+/* font definitions */
+
+@font-face {
+  font-family: "Roboto";
+  src: url("assets/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url("assets/fonts/AlegreyaSans-Regular.ttf");
+}
+
+/* reset styles and box model */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Roboto; 
+}
+
+:root {
+  --primary: #205f00; /* primary color - green*/
+  --white: #ffffff;  
+}
+
+/* top bar styles*/
+.top-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  background: var(--primary);
+  padding: 20px 0;
+}
+
+/* search button styles*/
+.search-button {
+  cursor: pointer;
+  height: 2rem;
+  margin-left: 20px;
+  display: none;
+}
+
+/* search group styles*/
+.search-group {
+  border-bottom: solid white 1px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+/* search input styles*/
+.search-group input {
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* serach icon styles*/
+
+.search-group img {
+  height: 1.2rem;
+}  
+
+/* search input placeholder styles*/
+.search-group input::placeholder {
+  color: white;
+}
+
+/* remove focus outline*/
+.search-group input:focus {
+  outline: none;
+}
+
+/*logo styles*/
+.logo img {
+  height: 4rem;
+}
+
+/*top bar button group styles*/
+.top-bar-btn-group {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+/*notification icon styles*/
+
+.top-bar-btn-group .img-icon img {
+  cursor: pointer;
+  height: 2rem;
+  margin-left: 20px;
+}
+
+
+.top-bar-btn-group .img-icon {
+  position: relative;
+}
+
+
+/*notification badge styles*/
+.top-bar-btn-group .img-icon div {
+  height: 20px;
+  width: 20px;
+  background-color: green;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.menu-group {
+  position: relative;
+}
+
+
+/*RESPONSIVE CSS CODE*/
+
+/* mobile navigation styles*/
+.mobile-nav {
+  display: none; /*intially hidden for desktop*/
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  justify-content: center;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.mobile-nav li {
+  text-align: center;
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 0;
+}
+
+/*mobile top bar styles*/
+
+.mobile-top-bar {
+  padding: 2rem;
+  background-color: var(--primary);
+  display: none;
+}
+
+/*menu button styles*/
+
+.menu-button {
+  height: 2rem;
+  display: none;
+  cursor: pointer;
+}
+
+/*menu button checkbox styles */
+#menu-button-checkbox {
+  position: absolute;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  display: none;
+}
+
+/*show mobile navigation on checkbox checked*/
+
+.mobile-top-bar input:checked ~ .mobile-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/*hide desktop navigation on mobile*/
+@media only screen and (max-width: 768px) {
+  .top-bar {
+    display: none; /*hide desktop top bar*/
+  }
+  .search-button {
+    display: inline-block; /*show search button on mobile*/
+  }
+  .menu-button {
+    display: inline-block; /*show menu button on mobile*/
+  }
+  .top-bar-btn-group { 
+    display: none; /*hide notification icons on mobile*/
+  }
+  .mobile-top-bar {
+    display: block; /*show mobile top bar*/
+  }
+}
+
+/* navigation styles*/
+.nav ul {
+  display: flex;
+  list-style: none;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  color: var(--primary);
+  font-weight: 600;
+  gap: 5vw;
+}
+.nav ul li {
+  cursor: pointer;
+}
+
+
+/*hide navigation on smaller screens*/
+@media only screen and (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .nav ul {
+    flex-direction: column;
+  }
+}
+
+
+/*hero section styles*/
+.hero-section {
+  height: 100%;
+  position: relative;
+}
+
+.hero-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-section-text {
+  position: absolute;
+  width: 40%;
+  left: 5vw;
+  top: 30%;
+}
+
+.hero-section-text h1 {
+  text-transform: uppercase;
+  color: var(--primary);
+  font-size: 4vw;
+  font-weight: bold;
+}
+
+.hero-section-text h2 {
+  color: var(--primary);
+  font-size: 3vw;
+  font-weight: 200;
+}
+.hero-section-text p {
+  color: var(--primary);
+  font-size: 1.5vw;
+}
+
+
+/*RESPOSIVE styles for hero section */
+/*adjusts content for small screens*/
+@media only screen and (max-width: 768px) {
+  .hero-section img {
+    height: 70vh;
+  }
+  .hero-section-text {
+    width: 70%;
+    top: 10%;
+  }
+  .hero-section-text h1 {
+    font-size: 5rem;
+  }
+  .hero-section-text h2 {
+    font-size: 2rem;
+  }
+  .hero-section-text p {
+    font-size: 1rem;
+  }
+}
+
+/*button styles*/
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.button {
+  cursor: pointer;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+  border-radius: 20px 0 20px 0;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  padding: 0 2rem 0 2rem;
+}
+
+
+/*RESPONSIVE styles for button*/
+@media only screen and (max-width: 768px) {
+  .button {
+    border-radius: 20px 0 20px 0;
+    height: 3rem;
+    padding: 0 2rem 0 2rem;
+  }
+}
+
+
+/*section title styles*/
+.section-title {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.section-title h1 {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 5vw;
+  color: var(--primary);
+}
+
+.section-title p {
+  color: green;
+  font-size: 1.5vw;
+}
+
+
+/*RESPONSIVE styles for section title*/
+@media only screen and (max-width: 768px) {
+  .section-title {
+    width: 90%;
+    padding: 1rem 0;
+  }
+  .section-title h1 {
+    font-size: 3rem;
+  }
+  .section-title p {
+    font-size: 1rem;
+  }
+}
+
+
+/*about us card styles*/
+
+.about-us-card {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.about-us-card-text {
+  width: 30%;
+  color: var(--primary);
+}
+
+.about-us-card-text h1 {
+  font-size: 2rem;
+}
+
+
+/*video card styles*/
+.video-card {
+  position: relative;
+  margin: 2rem 0;
+  padding: 8vw;
+  height: fit-content;
+  background-image: url(assets/images/foody.jpg);
+  background-size: cover;
+  background-color: rgba(0, 128, 0, 0.39);
+  background-blend-mode: multiply;
+}
+
+.video-card img {
+  height: 3rem;
+}
+
+.video-card div {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 8vw;
+  height: 8vw;
+  border-top: var(--primary) solid 5px;
+  border-left: var(--primary) solid 5px;
+}
+
+
+/*RESPONSIVE styles for anput us card and video card*/
+@media only screen and (max-width: 768px) {
+  .about-us-card {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-us-card-text {
+    width: 90%;
+  }
+  .video-card {
+    padding: 40vw;
+    margin-top: 1rem;
+  }
+}
+
+
+/*service card styles*/
+.service-card {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.service-card img {
+  width: 20vw;
+}
+
+.service-card-text {
+  width: 30%;
+  color: var(--primary);
+}
+
+.service-card-text .header {
+  padding: 1rem 0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/*RESPONSIVE styles for service card*/
+@media only screen and (max-width: 768px) {
+  .service-card {
+    width: 90%;
+    flex-direction: column;
+    margin: auto;
+  }
+  .service-card-text {
+    width: 100%;
+  }
+  .service-card img {
+    width: 100%;
+  }
+  .service-card-text .header {
+    font-size: 1.5rem;
+  }
+}
+
+
+/*discount section style*/
+.discount-section {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.discount-section img {
+  height: 30vw;
+  width: 100%;
+  object-fit: cover;
+}
+
+.discount-section-text {
+  position: absolute;
+  width: 40%;
+  left: 5vw;
+  top: 30%;
+}
+
+.discount-section-text h1 {
+  text-transform: uppercase;
+  color: var(--primary);
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+.discount-section-text h2 {
+  color: var(--primary);
+  font-size: 1.5vw;
+  font-weight: 200;
+}
+
+.discount-section-text p {
+  color: var(--primary);
+  font-size: 1.2vw;
+}
+
+
+/*RESPONSIVE styles for discount section*/
+@media only screen and (max-width: 768px) {
+  .discount-section img {
+    height: 70vw;
+  }
+  .discount-section-text {
+    width: 60%;
+    left: 1rem;
+    top: 20%;
+  }
+  .discount-section-text h1 {
+    font-size: 8vw;
+  }
+  .discount-section-text h2 {
+    font-size: 5vw;
+  }
+  .discount-section-text p {
+    font-size: 3vw;
+  }
+}
+
+
+/*price cards section styles*/
+
+.price-cards-section {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-evenly;
+}
+.price-card {
+  width: 18rem;
+  text-align: center;
+}
+.price-card-price {
+  background-color: green;
+  color: white;
+  padding: 3rem 0;
+}
+.price-card-price {
+  font-size: 2rem;
+}
+.price-card-features {
+  background-color: #f8f4f4;
+  padding: 3rem 0;
+}
+.price-card-features ul {
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 1rem;
+  align-items: center;
+}
+
+
+/*RESPONSIVE styles for price cards*/
+@media only screen and (max-width: 768px) {
+  .price-cards-section {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+  }
+  .price-card {
+    width: 25rem;
+  }
+}
+
+
+/*discount section 2 styles*/
+.discount-section-2 {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.discount-section-2 img {
+  height: 30vw;
+  width: 100%;
+  object-fit: cover;
+}
+
+.discount-section-2-text {
+  text-align: right;
+  position: absolute;
+  width: 40%;
+  right: 5vw;
+  top: 30%;
+}
+
+.discount-section-2-text h1 {
+  text-transform: uppercase;
+  color: var(--primary);
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+.discount-section-2-text h2 {
+  color: var(--primary);
+  font-size: 1.5vw;
+  font-weight: 200;
+}
+
+.discount-section-2-text p {
+  color: var(--primary);
+  font-size: 1.2vw;
+}
+
+.discount-section-2-text .button-group {
+  position: absolute;
+  right: 0;
+}
+
+/*RESPONSIVE styles for discount section 2*/
+
+@media only screen and (max-width: 768px) {
+  .discount-section-2 img {
+    height: 70vw;
+  }
+  .discount-section-2-text {
+    width: 60%;
+    right: 1rem;
+    top: 20%;
+  }
+  .discount-section-2-text h1 {
+    font-size: 8vw;
+  }
+  .discount-section-2-text h2 {
+    font-size: 5vw;
+  }
+  .discount-section-2-text p {
+    font-size: 3vw;
+  }
+}
+
+
+/*blog cards section styles*/
+.blog-cards-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  margin: 2rem auto;
+  gap: 1rem;
+}
+
+.blog-card-image {
+  width: 20rem;
+  height: 20rem;
+}
+
+.blog-card {
+  padding: 1.5rem;
+  width: 20rem;
+  height: 20rem;
+  background-color: #f8f4f4;
+  color: var(--primary);
+}
+
+.blog-card h2 {
+  font-size: 2rem;
+}
+
+.blog-card p {
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
+
+/*RESPONSIVE styles for blog cards*/
+@media only screen and (max-width: 768px) {
+  .blog-card-image {
+    width: 70vw;
+    height: 70vw;
+  }
+
+  .blog-card {
+    width: 70vw;
+    height: 70vw;
+  }
+  .blog-card h2 {
+    font-size: 8vw;
+  }
+
+  .blog-card p {
+    font-size: 3vw;
+  }
+}
+
+
+/*footer styles*/
+.footer {
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 4vw 0;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.footer ul li img {
+  height: 2rem;
+  cursor: pointer;
+}
+
+.footer h1 {
+  padding: 1rem 0;
+  font-size: 3vw;
+}
+
+.footer h2 {
+  font-size: 1.5rem;
+  color: #d6d6d6;
+  font-weight: 500;
+}
